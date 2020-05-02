@@ -199,13 +199,13 @@ def dump_xyz(molset, name="_tmp_"):
 
     xyzstr = expand_graph(neu_smi)
 
-    with open(name + "_n", 'w') as f:
+    with open(name + "_n.xyz", 'w') as f:
         f.write(xyzstr)
 
     for i, smi in enumerate(pro_smis):
         xyzstr = expand_graph(smi)
 
-        with open(name + f"_{i}", 'w') as f:
+        with open(name + f"_{i}.xyz", 'w') as f:
             f.write(xyzstr)
 
     return
