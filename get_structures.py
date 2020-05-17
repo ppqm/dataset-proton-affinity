@@ -198,12 +198,18 @@ def dump_xyz(molset, name="_tmp_"):
     pro_smis = molset[1:]
 
     xyzstr = expand_graph(neu_smi)
+    if xyzstr is None:
+        print("error", molset[0])
+        return
 
     with open(name + "_n.xyz", 'w') as f:
         f.write(xyzstr)
 
     for i, smi in enumerate(pro_smis):
         xyzstr = expand_graph(smi)
+        if xyzstr is None:
+            print("error", smi)
+            continue
 
         with open(name + f"_{i}.xyz", 'w') as f:
             f.write(xyzstr)
